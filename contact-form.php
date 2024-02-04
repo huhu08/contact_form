@@ -11,10 +11,11 @@ function my_contact_form_shortcode() {
     $form = '
     <form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post">
        
-        <p>Your Email (required) <br/>
-        <input type="email" name="cf-email" value="' . (isset($_POST["cf-email"]) ? esc_attr($_POST["cf-email"]) : '') . '" size="40" /></p>
+        
         <p>Subject <br/>
         <input type="text" name="cf-subject" pattern="[a-zA-Z ]+" value="' . (isset($_POST["cf-subject"]) ? esc_attr($_POST["cf-subject"]) : '') . '" size="40" /></p>
+        <p>Your Email (required) <br/>
+        <input type="email" name="cf-email" value="' . (isset($_POST["cf-email"]) ? esc_attr($_POST["cf-email"]) : '') . '" size="40" /></p>
         <p>Your Message <br/>
         <textarea rows="10" cols="35" name="cf-message">' . (isset($_POST["cf-message"]) ? esc_attr($_POST["cf-message"]) : '') . '</textarea></p>
         <p><input type="submit" name="cf-submitted" value="Send"></p>
@@ -33,11 +34,14 @@ function my_contact_form_capture() {
         $subject = sanitize_text_field($_POST['cf-subject']);
         $message = esc_textarea($_POST['cf-message']);
         
+
         // Process form, like sending an email
         wp_mail('your-email@example.com', $subject, $message, array('Reply-To' => $email));
         
         // Output a message or redirect
-        echo '<div>Your message was sent successfully. Thank you!</div>';
+        echo '<div>Form submitted successfully!</div>';
     }
+    
+    
 }
 add_action('wp_head', 'my_contact_form_capture');
