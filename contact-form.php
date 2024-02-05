@@ -25,7 +25,7 @@ function my_contact_form_shortcode() {
     return $form;
 }
 add_shortcode('my_contact_form', 'my_contact_form_shortcode');
-
+//shtort code to type in wordpress [my_contact_form_shortcode]
 // Function to handle form submission
 function my_contact_form_capture() {
     if (isset($_POST['cf-submitted'])) {
@@ -34,9 +34,10 @@ function my_contact_form_capture() {
         $subject = sanitize_text_field($_POST['cf-subject']);
         $message = esc_textarea($_POST['cf-message']);
         
+        $email_subject = 'New Contact Form Submission: ' . $subject;
 
         // Process form, like sending an email
-        wp_mail('your-email@example.com', $subject, $message, array('Reply-To' => $email));
+        wp_mail('huda@jasminecode.com', $subject, $message, array('Reply-To' => $email));
         
         // Output a message or redirect
         echo '<div>Form submitted successfully!</div>';
