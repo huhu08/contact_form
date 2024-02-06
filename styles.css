@@ -1,0 +1,30 @@
+/* File: contact-form-styles.css */
+
+.my-contact-form {
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+}
+.my-contact-form p {
+    margin-bottom: 15px;
+}
+.my-contact-form input[type="text"],
+.my-contact-form input[type="email"],
+.my-contact-form textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 4px;
+    border: 1px solid #410e0e;
+    box-sizing: border-box;
+}
+.my-contact-form input[type="submit"] {
+    background-color: #a6cda7;
+    color: white;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+.my-contact-form input[type="submit"]:hover {
+    background-color: #80c584;
+}

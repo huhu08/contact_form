@@ -7,6 +7,12 @@
  */
 
 // Shortcode function to display the contact form
+function my_contact_form_enqueue_styles() {
+    // Use plugins_url() to correctly reference the CSS file in your plugin directory
+    wp_enqueue_style('my-contact-form-styles', plugins_url('/styles.css', __FILE__));
+}
+add_action('wp_enqueue_scripts', 'my_contact_form_enqueue_styles');
+
 function my_contact_form_shortcode() {
     $form = '
     <form action="' . esc_url($_SERVER['REQUEST_URI']) . '" method="post">
@@ -46,3 +52,4 @@ function my_contact_form_capture() {
     
 }
 add_action('wp_head', 'my_contact_form_capture');
+
