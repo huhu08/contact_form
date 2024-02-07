@@ -18,13 +18,13 @@
     box-sizing: border-box;
 }
 .my-contact-form input[type="submit"] {
-    background-color: #a6cda7;
-    color: white;
+    background-color: #658066;
+    color: rgb(225, 210, 210);
     padding: 10px 24px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
 }
 .my-contact-form input[type="submit"]:hover {
-    background-color: #80c584;
+    background-color: #dff1e0;
 }
