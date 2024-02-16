@@ -9,6 +9,15 @@
 // Shortcode function to display the contact form
 function my_contact_form_enqueue_styles() {
     // Use plugins_url() to correctly reference the CSS file in your plugin directory
+    global $post;
+ 
+    // We want scripts to load only on single pages, posts or other CPT
+    if ( ! is_singular() ) { return; }
+    if ( ! $post ) { return; }
+
+    if ( ! has_shortcode( $post->post_content, 'contact-form-shortcode' ) ) {
+      return;
+    }   
     wp_enqueue_style('my-contact-form-styles', plugins_url('/styles.css', __FILE__));
 }
 add_action('wp_enqueue_scripts', 'my_contact_form_enqueue_styles');
