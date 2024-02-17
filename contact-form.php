@@ -17,7 +17,8 @@ function my_contact_form_enqueue_styles() {
 
     if ( ! has_shortcode( $post->post_content, 'contact-form-shortcode' ) ) {
       return;
-    }   
+    }
+       
     wp_enqueue_style('my-contact-form-styles', plugins_url('/styles.css', __FILE__));
 }
 add_action('wp_enqueue_scripts', 'my_contact_form_enqueue_styles');
@@ -56,6 +57,7 @@ function my_contact_form_capture() {
         
         // Output a message or redirect
         echo '<div>Form submitted successfully!</div>';
+        echo '<div>Please make another fill if you wish</div>';
     }
     
     
