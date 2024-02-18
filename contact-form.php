@@ -58,6 +58,7 @@ function my_contact_form_capture() {
         // Output a message or redirect
         echo '<div>Form submitted successfully!</div>';
         echo '<div>Please make another fill if you wish</div>';
+        echo 'testing if this shit works';
     }
     
     
